@@ -31,6 +31,67 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+
+#aboutUs {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#aboutUs img {
+    width: 400px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.content {
+    margin: 20px 0;
+}
+
+.content h2 {
+    font-size: 30px;
+    color: #010A35;
+    font: monospace;
+}
+
+.content h4 {
+    font-size: 20px;
+    color: #0e0d0d;
+    margin: 10px 0;
+}
+
+.description {
+    color: #7F8499;
+    margin: 20px 0;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 100;
+}
+
+
+@media screen and (max-width: 790px) {
+    #aboutUs img {
+        width: 80%;
+    }
+
+    #aboutUs {
+        grid-template-columns: 1fr;
+        place-items: center;
+    }
+}
+
+</style>
+
 <body>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -55,7 +116,8 @@
                 <a href="index.html" class="nav-item nav-link">Home</a>
                 <a href="about.html" class="nav-item nav-link active">About Us</a>
                 <a href="service.html" class="nav-item nav-link">Manufacturing Unit</a>
-                
+                <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+
                 <a href="contact.html" class="nav-item nav-link">Contact Us</a>
             </div>
             <div class="h-100 d-lg-inline-flex align-items-center d-none">
@@ -87,7 +149,7 @@
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="h-100">
-                        <h1 class="display-6 mb-5">Welcome to Premium Hardware Threading & Manufacturing Company</h1>
+                        <h1 class="display-6 mb-5">Welcome to Premium Hardware Trading & Manufacturing Company</h1>
                         <div class="row g-4 mb-4">
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center">
@@ -171,6 +233,25 @@
         </div>
     </div>
     <!-- Facts End -->
+
+
+
+    <!-- owner info start  -->
+    <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+        <h1 class="display-6 mb-5">Owners Profile</h1>
+    </div>
+    <section id="aboutUs">
+        <img src="img/team-1.jpg" alt="computer user">
+        <div class="content">
+            <h2>Swaraj Dhamale</h2>
+            <h6>BE Machanical, MBA</h6>
+            <h6> Founder - Swaraj Enterprise </h6>
+            <p class="description">
+                Meet Swaraj Dhamale, the visionary founder of our Premium Hardware Trading & Manufacturing Company Swaraj Enterprise. With a BE in Mechanical Engineering and an MBA, Swaraj combines technical expertise with sharp business acumen. Since establishing the company in 2017, he has been dedicated to providing top-quality products and exceptional customer service. Under his leadership, our company has grown to become a trusted name in the industry, known for reliability and innovation.
+            </p>
+        </div>
+    </section>
+    <!-- owner info end  -->
 
 
     <!-- certification start -->

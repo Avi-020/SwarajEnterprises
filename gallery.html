@@ -31,6 +31,62 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
+<style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      font-family: Arial;
+    }
+    
+    .header {
+      text-align: center;
+      padding: 32px;
+    }
+    
+    .row {
+      display: -ms-flexbox; /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap; /* IE10 */
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+    
+    /* Create four equal columns that sits next to each other */
+    .column {
+      -ms-flex: 25%; /* IE10 */
+      flex: 25%;
+      max-width: 25%;
+      padding: 0 4px;
+    }
+    
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+    
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+    
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+    </style>
+
 <body>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
@@ -39,7 +95,7 @@
     <!-- Spinner End -->
 
 
-   
+
 
 
     <!-- Navbar Start -->
@@ -53,11 +109,11 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto bg-light pe-4 py-3 py-lg-0">
                 <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="about.html" class="nav-item nav-link">About Us</a>
+                <a href="about.html" class="nav-item nav-link active">About Us</a>
                 <a href="service.html" class="nav-item nav-link">Manufacturing Unit</a>
                 <a href="gallery.html" class="nav-item nav-link">Gallery</a>
 
-                <a href="contact.html" class="nav-item nav-link active">Contact Us</a>
+                <a href="contact.html" class="nav-item nav-link">Contact Us</a>
             </div>
             <div class="h-100 d-lg-inline-flex align-items-center d-none">
                 <a class="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i class="fab fa-facebook-f"></i></a>
@@ -73,7 +129,7 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center py-5">
-            <h1 class="display-4 text-white animated slideInDown mb-4">Contact Us</h1>
+            <h1 class="display-4 text-white animated slideInDown mb-4">Gallery</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 
             </nav>
@@ -82,42 +138,55 @@
     <!-- Page Header End -->
 
 
-    <!-- Contact Start -->
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                    <h1 class="display-6 mb-5">If You Have Any Query, Please Contact Us</h1>
-                    <div class="border-top mt-4 pt-4">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="btn-lg-square bg-primary rounded-circle me-3">
-                                        <i class="fa fa-phone-alt text-white"></i>
-                                    </div>
-                                    <h5 class="mb-0">+91 98123 98123</h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center">
-                                    <div class="btn-lg-square bg-primary rounded-circle me-3">
-                                        <i class="fa fa-envelope text-white"></i>
-                                    </div>
-                                    <h5 class="mb-0">swarajenterprise.info</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s" style="min-height: 450px;">
-                    <div class="position-relative overflow-hidden h-100">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1739.3215791920825!2d73.65106127755655!3d18.534132692340275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2a3c4aa06c821%3A0xbf40b1df49915c88!2sSwaraj%20Enterprises!5e0!3m2!1sen!2sin!4v1715875522065!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-            </div>
+   <!-- photos start  -->
+
+    <div class="row"> 
+        <div class="column">
+          <img src="img/Gallery/img1.jpeg" style="width:100%">
+          <img src="img/Gallery/img2.jpeg" style="width:100%">
+          <img src="/img/Gallery/img3.jpeg" style="width:100%">
+          <img src="img/Gallery/img4.jpeg" style="width:100%">
+          <img src="img/Gallery/img5.jpeg" style="width:100%">
+          <img src="img/Gallery/img6.jpeg" style="width:100%">
+          <img src="/img/Gallery/img7.jpeg" style="width:100%">
         </div>
-    </div>
-    <!-- Contact End -->
+        <div class="column">
+            <img src="img/Gallery/img8.jpeg" style="width:100%">
+            <img src="img/Gallery/img9.jpeg" style="width:100%">
+            <img src="/img/Gallery/img10.jpeg" style="width:100%">
+            <img src="img/Gallery/img11.jpeg" style="width:100%">
+            <img src="img/Gallery/img12.jpeg" style="width:100%">
+            <img src="img/Gallery/img13.jpeg" style="width:100%">
+            <img src="/img/Gallery/img14.jpeg" style="width:100%">
+        </div>  
+        <div class="column">
+            <img src="img/Gallery/img15.jpeg" style="width:100%">
+            <img src="img/Gallery/img16.jpeg" style="width:100%">
+            <img src="/img/Gallery/img17.jpeg" style="width:100%">
+            <img src="img/Gallery/img18.jpeg" style="width:100%">
+
+            <img src="img/Gallery/img1.jpeg" style="width:100%">
+            <img src="img/Gallery/img13.jpeg" style="width:100%">
+            <img src="/img/Gallery/img14.jpeg" style="width:100%">
+        </div>
+
+        <!-- repeated images -->
+        <div class="column">
+         <img src="img/Gallery/img15.jpeg" style="width:100%">
+            <img src="img/Gallery/img16.jpeg" style="width:100%">
+            <img src="/img/Gallery/img17.jpeg" style="width:100%">
+            <img src="img/Gallery/img18.jpeg" style="width:100%">
+            <img src="img/Gallery/img1.jpeg" style="width:100%">
+            <img src="img/Gallery/img13.jpeg" style="width:100%">
+            <img src="/img/Gallery/img14.jpeg" style="width:100%">
+        </div>
+      </div>
+
+
+         <!-- photos end  -->
+
+
+
 
 
     <!-- Footer Start -->
