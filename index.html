@@ -1051,13 +1051,12 @@
         }
 
         let msg = `Hello, I want to schedule a meeting.%0A
-Name: ${name}%0A
-Phone: ${phone}%0A
-Date: ${selectedDate}%0A
-Time: ${selectedTime}`;
+        Name: ${name}%0A
+        Phone: ${phone}%0A
+        Date: ${selectedDate}%0A
+        Time: ${selectedTime}`;
 
         // SUCCESS POPUP
-        alert("Booking Confirmed! Redirecting to WhatsApp...");
 
         window.open(`https://wa.me/917057272227?text=${msg}`, "_blank");
       };
