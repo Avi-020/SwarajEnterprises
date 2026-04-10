@@ -202,6 +202,13 @@
               <h1 class="display-6 mb-5">
                 Welcome to Premium Hardware Trading & Manufacturing Company
               </h1>
+              <button
+                class="btn schedule-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#scheduleModal"
+              >
+                <i class="fab fa-whatsapp me-2"></i> Schedule a Meet
+              </button>
               <div class="row g-4 mb-4">
                 <div class="col-sm-6">
                   <div class="d-flex align-items-center">
@@ -870,11 +877,193 @@
       ><i class="bi bi-arrow-up"></i
     ></a>
 
+    <!-- Schedule Modal -->
+    <!-- PREMIUM Schedule Modal -->
+    <div class="modal fade" id="scheduleModal" tabindex="-1">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg">
+          <button
+            type="button"
+            class="btn-close custom-close"
+            data-bs-dismiss="modal"
+          ></button>
+          <div class="modal-body p-0">
+            <div class="row g-0">
+              <!-- LEFT PANEL -->
+              <div class="col-md-4 p-4 bg-light border-end">
+                <h4>Schedule a Meeting</h4>
+                <p><i class="far fa-clock me-2"></i>30 mins</p>
+                <p class="text-muted">Select your preferred date & time.</p>
+              </div>
+
+              <!-- RIGHT PANEL -->
+              <div class="col-md-8 p-4">
+                <div
+                  class="calendar-header d-flex justify-content-between align-items-center mb-3"
+                >
+                  <button id="prevMonth" class="btn btn-sm btn-light">
+                    &lt;
+                  </button>
+                  <h5 id="monthYear" class="mb-0"></h5>
+                  <button id="nextMonth" class="btn btn-sm btn-light">
+                    &gt;
+                  </button>
+                </div>
+
+                <div class="calendar-grid" id="calendar"></div>
+
+                <hr />
+
+                <!-- TIME SLOTS -->
+                <div id="timeSection" style="display: none">
+                  <h6>Select Time</h6>
+                  <div class="time-slots" id="timeSlots"></div>
+
+                  <input
+                    type="text"
+                    id="name"
+                    class="form-control mt-3"
+                    placeholder="Your Name"
+                  />
+                  <input
+                    type="tel"
+                    id="phone"
+                    class="form-control mt-2"
+                    placeholder="Mobile Number"
+                  />
+
+                  <button id="confirmBtn" class="btn btn-primary w-100 mt-3">
+                    Confirm Booking
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- WhatsApp Sticky Button -->
     <a href="https://wa.me/917057272227" class="whatsapp-float" target="_blank">
       <i class="fab fa-whatsapp"></i>
     </a>
     <!-- JavaScript Libraries -->
+    <script>
+      let date = new Date();
+      let selectedDate = "";
+      let selectedTime = "";
+
+      function renderCalendar() {
+        const calendar = document.getElementById("calendar");
+        calendar.innerHTML = "";
+
+        const monthYear = document.getElementById("monthYear");
+        monthYear.innerText = date.toLocaleString("default", {
+          month: "long",
+          year: "numeric",
+        });
+
+        const firstDay = new Date(
+          date.getFullYear(),
+          date.getMonth(),
+          1,
+        ).getDay();
+        const daysInMonth = new Date(
+          date.getFullYear(),
+          date.getMonth() + 1,
+          0,
+        ).getDate();
+
+        for (let i = 0; i < firstDay; i++) {
+          calendar.innerHTML += `<div></div>`;
+        }
+
+        for (let i = 1; i <= daysInMonth; i++) {
+          let day = document.createElement("div");
+          day.className = "calendar-day";
+          day.innerText = i;
+
+          day.onclick = () => {
+            document
+              .querySelectorAll(".calendar-day")
+              .forEach((d) => d.classList.remove("active"));
+            day.classList.add("active");
+
+            selectedDate = `${i}-${date.getMonth() + 1}-${date.getFullYear()}`;
+
+            showTimeSlots();
+          };
+
+          calendar.appendChild(day);
+        }
+      }
+
+      function showTimeSlots() {
+        document.getElementById("timeSection").style.display = "block";
+
+        const slots = [
+          "10:00 AM",
+          "11:00 AM",
+          "12:00 PM",
+          "2:00 PM",
+          "3:00 PM",
+          "4:00 PM",
+        ];
+        const container = document.getElementById("timeSlots");
+        container.innerHTML = "";
+
+        slots.forEach((time) => {
+          let btn = document.createElement("button");
+          btn.className = "time-btn";
+          btn.innerText = time;
+
+          btn.onclick = () => {
+            document
+              .querySelectorAll(".time-btn")
+              .forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            selectedTime = time;
+          };
+
+          container.appendChild(btn);
+        });
+      }
+
+      // Month navigation
+      document.getElementById("prevMonth").onclick = () => {
+        date.setMonth(date.getMonth() - 1);
+        renderCalendar();
+      };
+
+      document.getElementById("nextMonth").onclick = () => {
+        date.setMonth(date.getMonth() + 1);
+        renderCalendar();
+      };
+
+      // Confirm booking
+      document.getElementById("confirmBtn").onclick = () => {
+        let name = document.getElementById("name").value;
+        let phone = document.getElementById("phone").value;
+
+        if (!selectedDate || !selectedTime || !name || !phone) {
+          alert("Fill all details");
+          return;
+        }
+
+        let msg = `Hello, I want to schedule a meeting.%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Date: ${selectedDate}%0A
+Time: ${selectedTime}`;
+
+        // SUCCESS POPUP
+        alert("Booking Confirmed! Redirecting to WhatsApp...");
+
+        window.open(`https://wa.me/917057272227?text=${msg}`, "_blank");
+      };
+
+      renderCalendar();
+    </script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>

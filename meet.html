@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Schedule a Meeting - Swaraj Enterprises</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Favicon -->
+    <link href="img/icon/logo.svg" rel="icon" />
+
+    <!-- Fonts & Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Navbar (same as your site) -->
+    <!-- Navbar Start -->
+    <nav
+      class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5"
+    >
+      <a href="index.html" class="navbar-brand d-flex align-items-center">
+        <h1 class="m-0">
+          <img class="img-fluid me-3" src="img/icon/logo.svg" alt="" />
+        </h1>
+      </a>
+      <button
+        type="button"
+        class="navbar-toggler"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav mx-auto bg-light pe-4 py-3 py-lg-0">
+          <a href="index.html" class="nav-item nav-link active">Home</a>
+          <a href="about.html" class="nav-item nav-link">About Us</a>
+          <a href="service.html" class="nav-item nav-link"
+            >Manufacturing Unit</a
+          >
+          <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+          <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+        </div>
+        <div class="h-100 d-lg-inline-flex align-items-center d-none">
+          <a
+            class="btn btn-square rounded-circle bg-light text-primary me-2"
+            target="_blank"
+            href="https://www.facebook.com/swaraj.dhamale?mibextid=kFxxJD"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            class="btn btn-square rounded-circle bg-light text-primary me-2"
+            target="_blank"
+            href="https://www.linkedin.com/in/swaraj-dhamale-91663930a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a
+            class="btn btn-square rounded-circle bg-light text-primary me-0"
+            target="_blank"
+            href="https://www.instagram.com/swaraj_dhamale_?igsh=d2N2dXRicThkcDlt"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Header -->
+    <div class="container-fluid bg-dark text-white text-center py-5">
+      <h1 class="display-5">Schedule a Meeting</h1>
+      <p>Let’s discuss your requirements</p>
+    </div>
+
+    <!-- Form Section -->
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="bg-light p-5 rounded shadow">
+            <form action="#" method="POST">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Full Name</label>
+                  <input type="text" class="form-control" required />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Mobile Number</label>
+                  <input type="tel" class="form-control" required />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Email Address</label>
+                  <input type="email" class="form-control" />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Preferred Date</label>
+                  <input type="date" class="form-control" required />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Preferred Time</label>
+                  <input type="time" class="form-control" required />
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">Meeting Type</label>
+                  <select class="form-control">
+                    <option>Phone Call</option>
+                    <option>Video Meeting</option>
+                    <option>Visit Factory</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">Message</label>
+                  <textarea class="form-control" rows="4"></textarea>
+                </div>
+
+                <div class="col-12 text-center">
+                  <button class="btn btn-primary px-5 py-3">
+                    Schedule Now
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container-fluid bg-dark text-white text-center py-3">
+      <small>© Swaraj Enterprises</small>
+    </div>
+  </body>
+</html>
