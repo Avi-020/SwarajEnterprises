@@ -95,7 +95,33 @@
 .modal-content {
   animation: scaleIn 0.3s ease;
 }
+/* Clean Offer Banner */
+.offer-clean {
+  background: linear-gradient(135deg, #22a1e1, #001064);
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
 
+/* Subtle hover like big brands */
+.offer-clean:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Button */
+.offer-btn-clean {
+  background: #fff;
+  color: #0d6efd;
+  border-radius: 25px;
+  padding: 8px 20px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.offer-btn-clean:hover {
+  background: #f1f1f1;
+  transform: scale(1.05);
+}
 /* Premium Schedule Button */
 .schedule-btn {
   background: linear-gradient(135deg, #0d6efd, #4da3ff);
