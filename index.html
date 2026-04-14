@@ -688,6 +688,117 @@
       </div>
     </div>
     <!-- certification End -->
+    <!-- Industry Visit Section -->
+    <!-- Premium Industry Visit Section -->
+    <div class="container my-5">
+      <div class="industry-premium p-4 p-md-5">
+        <div class="row align-items-center">
+          <!-- LEFT CONTENT -->
+          <div class="col-lg-8">
+            <h3 class="mb-3">🏭 Book Your Industry Visit</h3>
+            <p class="mb-4 text-muted">
+              Get expert guidance at your location. We help you select the right
+              nuts & bolts based on your exact industrial requirements.
+            </p>
+
+            <!-- Features -->
+            <div class="d-flex flex-wrap gap-3 small text-muted mb-3">
+              <span>✔ On-site inspection</span>
+              <span>✔ Expert recommendations</span>
+              <span>✔ Cost optimization</span>
+            </div>
+          </div>
+
+          <!-- RIGHT CTA -->
+          <div class="col-lg-4 text-lg-end text-start mt-3 mt-lg-0">
+            <button
+              class="btn industry-btn-premium"
+              data-bs-toggle="modal"
+              data-bs-target="#visitModal"
+            >
+              Book Visit →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Ultra Premium Industry Visit Modal -->
+    <div class="modal fade" id="visitModal" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content premium-modal border-0">
+          <!-- Close -->
+          <button
+            type="button"
+            class="btn-close custom-close"
+            data-bs-dismiss="modal"
+          ></button>
+
+          <div class="modal-body p-0">
+            <div class="row g-0">
+              <!-- LEFT -->
+              <div class="col-md-5 premium-left p-4">
+                <h4 class="mb-3 text-white">🏭 Industry Visit</h4>
+                <p class="text-white">
+                  We visit your site and recommend the best fasteners for your
+                  use-case.
+                </p>
+              </div>
+
+              <!-- RIGHT -->
+              <div class="col-md-7 p-4">
+                <!-- Step 1 -->
+                <div class="fade-in">
+                  <input
+                    type="text"
+                    id="visitName"
+                    class="form-control mb-3"
+                    placeholder="Company Name"
+                  />
+                  <input
+                    type="tel"
+                    id="visitPhone"
+                    class="form-control mb-3"
+                    placeholder="Mobile Number"
+                  />
+
+                  <!-- Location -->
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      id="visitLocation"
+                      class="form-control"
+                      placeholder="Your Location"
+                    />
+                    <button
+                      class="btn btn-outline-primary"
+                      onclick="getLocation()"
+                    >
+                      📍
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="fade-in delay">
+                  <label class="mb-2">Select Date</label>
+                  <input type="date" id="visitDate" class="form-control mb-3" />
+                </div>
+
+                <!-- Step 3 -->
+                <div class="fade-in delay2">
+                  <label class="mb-2">Available Slots</label>
+                  <div class="time-slots" id="visitSlots"></div>
+                </div>
+
+                <button id="visitBtn" class="btn btn-primary w-100 mt-3">
+                  Confirm Visit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- What They Say About Manufacturing Unit Start -->
     <div class="container-xxl py-5">
@@ -1047,6 +1158,75 @@
       <i class="fab fa-whatsapp"></i>
     </a>
     <!-- JavaScript Libraries -->
+    <script>
+      let selectedVisitTime = "";
+
+      // Available slots (controlled)
+      const slots = ["10:00 AM", "11:30 AM", "1:00 PM", "3:00 PM", "4:30 PM"];
+
+      function loadSlots() {
+        const container = document.getElementById("visitSlots");
+        container.innerHTML = "";
+
+        slots.forEach((time) => {
+          let btn = document.createElement("button");
+          btn.className = "time-btn";
+          btn.innerText = time;
+
+          btn.onclick = () => {
+            document
+              .querySelectorAll("#visitSlots .time-btn")
+              .forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            selectedVisitTime = time;
+          };
+
+          container.appendChild(btn);
+        });
+      }
+
+      loadSlots();
+
+      // 📍 Get Location
+      function getLocation() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            let lat = position.coords.latitude;
+            let lon = position.coords.longitude;
+            document.getElementById("visitLocation").value =
+              `Lat: ${lat}, Lng: ${lon}`;
+          });
+        } else {
+          alert("Location not supported");
+        }
+      }
+
+      // WhatsApp booking
+      document
+        .getElementById("visitBtn")
+        .addEventListener("click", function () {
+          let name = document.getElementById("visitName").value;
+          let phone = document.getElementById("visitPhone").value;
+          let location = document.getElementById("visitLocation").value;
+          let date = document.getElementById("visitDate").value;
+
+          if (!name || !phone || !location || !date || !selectedVisitTime) {
+            alert("Please fill all details");
+            return;
+          }
+
+          let message = `Hello, I want to book an industry visit.%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Location: ${location}%0A
+Date: ${date}%0A
+Time: ${selectedVisitTime}`;
+
+          alert("Visit request ready! Redirecting to WhatsApp...");
+
+          window.open(`https://wa.me/917057272227?text=${message}`, "_blank");
+        });
+    </script>
     <script>
       let isMetric = true;
 
