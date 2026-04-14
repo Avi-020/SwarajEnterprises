@@ -107,6 +107,69 @@
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
+/* Calculator */
+/* Calculator Box */
+.calculator-box {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.calculator-box:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Inputs */
+.calculator-box input,
+.calculator-box select {
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  transition: 0.2s;
+}
+
+.calculator-box input:focus,
+.calculator-box select:focus {
+  border-color: #0d6efd;
+  box-shadow: none;
+}
+
+/* Labels */
+.calculator-box label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* Result Box */
+.result-box {
+  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Result Numbers */
+#weight,
+#price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+/* Button */
+.calculator-box .btn {
+  border-radius: 30px;
+  padding: 10px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.calculator-box .btn:hover {
+  transform: translateY(-2px);
+}
 
 /* Button */
 .offer-btn-clean {
