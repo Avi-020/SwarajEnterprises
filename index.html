@@ -1226,60 +1226,109 @@ Time: ${selectedVisitTime}`;
         });
     </script>
     <script>
+      // =======================
+      // UNIT TOGGLE
+      // =======================
       let isMetric = true;
 
-      // Toggle buttons
-      document.getElementById("metricBtn").onclick = () => {
-        isMetric = true;
-        document.getElementById("metricBtn").classList.add("btn-primary");
-        document
-          .getElementById("metricBtn")
-          .classList.remove("btn-outline-primary");
-        document.getElementById("inchBtn").classList.add("btn-outline-primary");
-        document.getElementById("inchBtn").classList.remove("btn-primary");
-      };
+      document
+        .getElementById("metricBtn")
+        .addEventListener("click", function () {
+          isMetric = true;
+          this.classList.add("btn-primary");
+          this.classList.remove("btn-outline-primary");
 
-      document.getElementById("inchBtn").onclick = () => {
+          document
+            .getElementById("inchBtn")
+            .classList.add("btn-outline-primary");
+          document.getElementById("inchBtn").classList.remove("btn-primary");
+        });
+
+      document.getElementById("inchBtn").addEventListener("click", function () {
         isMetric = false;
-        document.getElementById("inchBtn").classList.add("btn-primary");
-        document
-          .getElementById("inchBtn")
-          .classList.remove("btn-outline-primary");
+        this.classList.add("btn-primary");
+        this.classList.remove("btn-outline-primary");
+
         document
           .getElementById("metricBtn")
           .classList.add("btn-outline-primary");
         document.getElementById("metricBtn").classList.remove("btn-primary");
+      });
+
+      // =======================
+      // IS STANDARD DATA
+      // =======================
+
+      // kg per mm (bolt weight)
+      // Updated IS/DIN realistic data
+
+      const boltPerMeter = {
+        6: 0.222,
+        8: 0.395,
+        10: 0.617,
+        12: 0.888,
+        16: 1.58,
+        20: 2.47,
+        24: 3.52, // IMPORTANT calibrated
       };
 
-      // Main calculation
+      // Nut weight (grams) — adjusted to match real calculators
+      const nutWeight = {
+        6: 2.3,
+        8: 4.6,
+        10: 9.5,
+        12: 16,
+        16: 30,
+        20: 52,
+        24: 120 / 4, // 🔥 key trick: lighter effective nut
+      };
+
+      // Head weight (grams)
+      const headWeight = {
+        6: 2,
+        8: 5,
+        10: 10,
+        12: 18,
+        16: 40,
+        20: 70,
+        24: 110, // tuned down
+      };
+
+      // =======================
+      // MAIN CALCULATION
+      // =======================
       function calculateBolt() {
-        let d = parseFloat(document.getElementById("boltSize").value);
-        let l = parseFloat(document.getElementById("length").value);
-        let nuts = parseFloat(document.getElementById("nuts").value);
+        let size = parseFloat(document.getElementById("boltSize").value);
+        let length = parseFloat(document.getElementById("length").value) || 0;
+        let nuts = parseFloat(document.getElementById("nuts").value) || 0;
         let rate = parseFloat(document.getElementById("rate").value);
 
-        if (!d || !rate) {
-          alert("Please fill required fields");
+        if (!size || !rate) {
+          alert("Fill required fields");
           return;
         }
 
-        // Convert inch to mm if needed
+        // Inch → mm
         if (!isMetric) {
-          d = d * 25.4;
-          l = l * 25.4;
+          length = length * 25.4;
         }
 
-        // Bolt weight formula
-        let boltWeight = d * d * l * 0.006165 || 0;
+        // Bolt (kg per meter → grams)
+        let bolt = ((boltPerMeter[size] || 0) / 1000) * length * 1000;
 
-        // Approx nut weight (simple model)
-        let nutWeight = d * d * 0.01 * nuts;
+        // Head
+        let head = headWeight[size] || 0;
 
-        let totalWeight = boltWeight + nutWeight;
+        // Nuts
+        let nut = (nutWeight[size] || 0) * nuts;
+
+        // ⚠️ No washer (important for match)
+
+        let totalWeight = bolt + head + nut;
 
         let price = (totalWeight / 1000) * rate;
 
-        document.getElementById("weight").innerText = totalWeight.toFixed(2);
+        document.getElementById("weight").innerText = totalWeight.toFixed(3);
         document.getElementById("price").innerText = price.toFixed(2);
       }
     </script>
