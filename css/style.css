@@ -815,3 +815,52 @@
 .footer .copyright a:hover {
   color: #ffffff;
 }
+
+/* ===== TRUSTED BRANDS (FIXED 6 LOGOS ROW) ===== */
+
+.trusted-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 🔥 ALWAYS 6 */
+  gap: 10px;
+
+  align-items: center;
+  justify-items: center;
+
+  width: 100%;
+}
+
+/* Logos */
+.trusted-grid img {
+  width: 100%; /* 🔥 fit inside column */
+  height: auto;
+  max-height: 50px;
+
+  object-fit: contain;
+
+  transition: 0.3s ease;
+}
+
+/* Hover */
+.trusted-grid img:hover {
+  transform: scale(1.05);
+}
+/* Tablet */
+@media (max-width: 992px) {
+  .trusted-grid img {
+    max-height: 35px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+  .trusted-grid img {
+    max-height: 22px;
+  }
+}
+.trusted-grid img {
+  opacity: 0.85;
+}
+
+.trusted-grid img:hover {
+  opacity: 1;
+}
