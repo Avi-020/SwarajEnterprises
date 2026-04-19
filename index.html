@@ -208,7 +208,91 @@
         <img src="img/logos/APL.jpeg" />
       </div>
     </div>
+    <!-- Calculator Section Start -->
+    <div class="container my-5">
+      <div class="calculator-box p-4 p-md-5">
+        <h3 class="mb-4">Hex Bolt Weight & Rate Calculator</h3>
 
+        <!-- Toggle -->
+        <div class="mb-4">
+          <button class="btn btn-sm btn-primary me-2 active" id="metricBtn">
+            Metric
+          </button>
+          <button class="btn btn-sm btn-outline-primary" id="inchBtn">
+            Inch
+          </button>
+        </div>
+
+        <div class="row g-4">
+          <!-- INPUTS -->
+          <div class="col-lg-6">
+            <label>Select Size</label>
+            <select id="boltSize" class="form-control mb-3">
+              <option value="">Select Size</option>
+              <option value="5">M5</option>
+              <option value="6">M6</option>
+              <option value="8">M8</option>
+              <option value="10">M10</option>
+              <option value="12">M12</option>
+              <option value="16">M16</option>
+              <option value="20">M20</option>
+              <option value="24">M24</option>
+            </select>
+
+            <label>Length (0 = no bolt)</label>
+            <input
+              type="number"
+              id="length"
+              class="form-control mb-3"
+              placeholder="mm"
+            />
+
+            <label>Nut(s) per Bolt</label>
+            <input
+              type="number"
+              id="nuts"
+              class="form-control mb-3"
+              value="1"
+            />
+
+            <label>Rate (₹ per Kg)</label>
+            <input
+              type="number"
+              id="rate"
+              class="form-control mb-3"
+              placeholder="₹"
+            />
+
+            <button class="btn btn-primary w-100" onclick="calculateBolt()">
+              Calculate
+            </button>
+          </div>
+
+          <!-- OUTPUT -->
+          <div class="col-lg-6">
+            <div class="result-box p-4 h-100">
+              <h5 class="mb-3">Result</h5>
+
+              <p>
+                <strong>Weight Each:</strong> <span id="weight">0</span> grams
+              </p>
+              <p><strong>Rate Each:</strong> ₹ <span id="price">0</span></p>
+              <div class="calc-note mt-3">
+                <strong>Conditions:</strong>
+                <ul class="mb-0 mt-2">
+                  <li>Accuracy of this weight calculator is up to 95%.</li>
+                  <li>This tool is for estimation purposes only.</li>
+                  <li>
+                    Use this only if you are familiar with hex bolt sizes.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Calculator Section End -->
     <!-- About Start -->
     <div class="container-xxl py-5">
       <div class="container">
@@ -582,92 +666,6 @@
         </div>
     </div> -->
     <!-- Quote End -->
-
-    <!-- Calculator Section Start -->
-    <div class="container my-5">
-      <div class="calculator-box p-4 p-md-5">
-        <h3 class="mb-4">Hex Bolt Weight & Rate Calculator</h3>
-
-        <!-- Toggle -->
-        <div class="mb-4">
-          <button class="btn btn-sm btn-primary me-2 active" id="metricBtn">
-            Metric
-          </button>
-          <button class="btn btn-sm btn-outline-primary" id="inchBtn">
-            Inch
-          </button>
-        </div>
-
-        <div class="row g-4">
-          <!-- INPUTS -->
-          <div class="col-lg-6">
-            <label>Select Size</label>
-            <select id="boltSize" class="form-control mb-3">
-              <option value="">Select Size</option>
-              <option value="5">M5</option>
-              <option value="6">M6</option>
-              <option value="8">M8</option>
-              <option value="10">M10</option>
-              <option value="12">M12</option>
-              <option value="16">M16</option>
-              <option value="20">M20</option>
-              <option value="24">M24</option>
-            </select>
-
-            <label>Length (0 = no bolt)</label>
-            <input
-              type="number"
-              id="length"
-              class="form-control mb-3"
-              placeholder="mm"
-            />
-
-            <label>Nut(s) per Bolt</label>
-            <input
-              type="number"
-              id="nuts"
-              class="form-control mb-3"
-              value="1"
-            />
-
-            <label>Rate (₹ per Kg)</label>
-            <input
-              type="number"
-              id="rate"
-              class="form-control mb-3"
-              placeholder="₹"
-            />
-
-            <button class="btn btn-primary w-100" onclick="calculateBolt()">
-              Calculate
-            </button>
-          </div>
-
-          <!-- OUTPUT -->
-          <div class="col-lg-6">
-            <div class="result-box p-4 h-100">
-              <h5 class="mb-3">Result</h5>
-
-              <p>
-                <strong>Weight Each:</strong> <span id="weight">0</span> grams
-              </p>
-              <p><strong>Rate Each:</strong> ₹ <span id="price">0</span></p>
-              <div class="calc-note mt-3">
-                <strong>Conditions:</strong>
-                <ul class="mb-0 mt-2">
-                  <li>Accuracy of this weight calculator is up to 95%.</li>
-                  <li>This tool is for estimation purposes only.</li>
-                  <li>
-                    Use this only if you are familiar with hex bolt sizes.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Calculator Section End -->
 
     <!-- certification Start -->
     <div class="container-xxl py-5">
